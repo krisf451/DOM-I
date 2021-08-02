@@ -51,7 +51,7 @@ logo.setAttribute("src", siteContent["nav"]["img-src"]);
 
 //get all a tags in the nav bar
 const navLinks = document.querySelectorAll("nav a");
-console.log(navLinks);
+// console.log(navLinks);
 
 //looop through the nodelist and apply the data from the object
 //create a counter variable to get all of the links in the nav
@@ -65,11 +65,59 @@ navLinks.forEach(item => {
 
 //get the cta h1 and button data
 
-let ctaH1 = document.querySelector(".cta-text h1");
-ctaH1.textContent = siteContent["cta"]["h1"];
-let ctaButton = document.querySelector(".cta-text button");
-ctaButton.textContent = siteContent["cta"]["button"];
+// let ctaH1 = document.querySelector(".cta-text h1");
+// ctaH1.textContent = siteContent["cta"]["h1"];
+
+//using innerHTML to add in the line breaks to match design file
+document.querySelector("h1").innerHTML = siteContent["cta"]["h1"].replace(
+  / /g,
+  "<br>"
+);
+// let ctaButton = document.querySelector(".cta-text button");
+document.querySelector(".cta-text button").textContent =
+  siteContent["cta"]["button"];
 
 //get cta img
-let ctaImg = document.querySelector("#cta-img");
-ctaImg.src = siteContent["cta"]["img-src"];
+document.querySelector("#cta-img").src = siteContent["cta"]["img-src"];
+
+//main content
+
+//get all text content headers
+const contentHeaders = document.querySelectorAll(".text-content h4");
+// console.log(contentHeaders[0]);
+contentHeaders[0].textContent = siteContent["main-content"]["features-h4"];
+contentHeaders[1].textContent = siteContent["main-content"]["about-h4"];
+contentHeaders[2].textContent = siteContent["main-content"]["services-h4"];
+contentHeaders[3].textContent = siteContent["main-content"]["product-h4"];
+contentHeaders[4].textContent = siteContent["main-content"]["vision-h4"];
+
+//get all the text content paragraphs
+const contentParagraphs = document.querySelectorAll(".text-content p");
+contentParagraphs[0].textContent =
+  siteContent["main-content"]["features-content"];
+contentParagraphs[1].textContent = siteContent["main-content"]["about-content"];
+contentParagraphs[2].textContent =
+  siteContent["main-content"]["services-content"];
+contentParagraphs[3].textContent =
+  siteContent["main-content"]["product-content"];
+contentParagraphs[4].textContent =
+  siteContent["main-content"]["vision-content"];
+
+//get middle img
+document.querySelector("#middle-img").src =
+  siteContent["main-content"]["middle-img-src"];
+
+//contact heading
+document.querySelector(".contact h4").textContent =
+  siteContent["contact"]["contact-h4"];
+
+//contact p's
+const contactPs = document.querySelectorAll(".contact p");
+// console.log(contactPs);
+contactPs[0].innerHTML = siteContent["contact"]["address"];
+contactPs[1].textContent = siteContent["contact"]["phone"];
+contactPs[2].textContent = siteContent["contact"]["email"];
+
+//footer
+document.querySelector("footer p").textContent =
+  siteContent["footer"]["copyright"];
