@@ -33,7 +33,7 @@ const siteContent = {
   },
   contact: {
     "contact-h4": "Contact",
-    address: "123 Way 456 Street Somewhere, USA",
+    address: "123 Way 456 Street<br>Somewhere, USA",
     phone: "1 (888) 888-8888",
     email: "sales@greatidea.io"
   },
@@ -121,3 +121,17 @@ contactPs[2].textContent = siteContent["contact"]["email"];
 //footer
 document.querySelector("footer p").textContent =
   siteContent["footer"]["copyright"];
+
+//change nav links to be green
+navLinks.forEach(item => (item.style.color = "green"));
+
+//add new elements to the nav section
+//creat the elements
+const newLink1 = document.createElement("a");
+const newLink2 = document.createElement("a");
+
+newLink1.textContent = "Blog";
+newLink2.textContent = "FAQ";
+
+document.querySelector("header nav").appendChild(newLink1);
+document.querySelector("header nav").prepend(newLink2);
